@@ -1,0 +1,13 @@
+1. Download go from https://golang.org/dl/
+	- Select your systems operating system
+	- Run downloaded file and follow on screen instructions
+	- To confirm Go has been installed open a terminal window and enter go
+
+2. Download Visual Studio Code from https://code.visualstudio.com/
+	- Open downloaded file and follow any on screen instructions
+
+3. Install Go extensions in visual Studio Code
+	- Search for Go in extentions (Description: Rich Go language for...)
+	- Close Visual Studio Code and then reopen and create a new file
+	- On the bottom right click plain text and change language mode to go
+	- Install missing analysis tools
