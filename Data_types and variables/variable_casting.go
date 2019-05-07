@@ -16,6 +16,12 @@ func main() {
 
 	fmt.Println(numberOneAsFloat + numberTwo)
 
+	numberOne = 5
+	numberTwo = 2
+
+	fmt.Println(5 / 2)
+	fmt.Println(float32(numberOne) / float32(numberTwo))
+
 	//convert float32 to float64
 	var myFloat32 float32 = 19.95
 	fmt.Println(myFloat32)
