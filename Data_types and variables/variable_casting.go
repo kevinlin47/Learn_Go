@@ -11,7 +11,6 @@ func main() {
 
 	// Can't add numberOne with numberTwo because of a mismatch in variable type
 	// We can cast numberOne to a float
-
 	numberOneAsFloat := float32(numberOne)
 
 	fmt.Println(numberOneAsFloat + numberTwo)

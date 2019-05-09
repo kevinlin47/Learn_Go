@@ -9,5 +9,6 @@ package main
 //float64 - IEEE 64-bit floating-point numbers
 
 //rune - same as int32 (Unicode)
+//string - string of text
 
 //List of all basic types in Go https://tour.golang.org/basics/11
