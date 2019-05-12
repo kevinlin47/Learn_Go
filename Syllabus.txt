@@ -25,6 +25,7 @@
 
 6 - Slices and for loops
 	- Explain slice
+	- Conditionals (if/else)
 	- Demonstrate for loops
 
 7 - Custome type declarations and receiver functions
