@@ -23,7 +23,7 @@
 5 - Functions 
 	-Explain functions
 
-6 -  For loops and conditionals
+6 - For loops and conditionals
 	- Conditionals (if/else)
 	- Demonstrate for loops
 
