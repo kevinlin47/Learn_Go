@@ -23,42 +23,45 @@
 5 - Functions 
 	-Explain functions
 
-6 - Slices and for loops
-	- Explain slice
+6 -  For loops and conditionals
 	- Conditionals (if/else)
 	- Demonstrate for loops
 
-7 - Custome type declarations and receiver functions
+7 - Slices
+	- Explain slice
+	- Create a deck using slice
+
+8 - Custome type declarations and receiver functions
 	- Explain custom types in Go
 	- Explain receiver functions
 	- Demonstrate custom types and receiver functions
 
-8 - Create new Deck
+9 - Create new Deck
 	- Show how to create a new deck using out custom Deck type
 	- Slice range syntax
 
-9 - Save deck to a file
+10 - Save deck to a file
 	- Look at Go documentation for writing to file
 	- Go from String slice to string
 	- Go from string to byte slice
 
-10 - Read deck from file
+11 - Read deck from file
    - Look at Go documentation for reading from a file
    - Write code to read deck from file 
 
-11 - Error Handling
+12 - Error Handling
 	 - Explain error handling in Go
 	 - Write error handling while reaidng from file
 
-12 - Shuffle Deck
+13 - Shuffle Deck
 	 - Use random number generator to shuffle our deck
 
-13 - Testing with Go
+14 - Testing with Go
    - Explain how to create go test file
    - Explain how to run all tests files in a package
    - Demonstrate the above
    
-14 - Project Review / Wrap up
+15 - Project Review / Wrap up
 
 
 
