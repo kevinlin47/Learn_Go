@@ -5,15 +5,22 @@ import "fmt"
 func main() {
 	cards := newDeck()
 
-	fmt.Println(cards)
+	for i, c := range cards {
+		if i%13 == 0 {
+			fmt.Println()
+		}
+		fmt.Printf("%s ", c)
+		fmt.Printf("           | ")
+	}
+
 	fmt.Println(len(cards))
 }
 
 func newDeck() []string {
 
-	newDeck := make([]string, 52)
+	newDeck := []string{}
 
-	cardSuits := [5]string{"Hearts", "Spades", "Clubs", "Diamonds"}
+	cardSuits := [4]string{"Hearts", "Spades", "Clubs", "Diamonds"}
 	cardValues := [13]string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"}
 
 	for i := 0; i < len(cardSuits); i++ {
