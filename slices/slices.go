@@ -26,6 +26,18 @@ func main() {
 	mySlice := []float32{} //Declare and initialize a slice variable
 	fmt.Println(mySlice)
 
-	mySlice = append(mySlice, 3.14, 3.199)
+	myOtherSlice := make([]float32, 2) //Declare a slice variable using built in function make
+	fmt.Println(myOtherSlice)
+
+	mySlice = append(mySlice, 3.14, 3.199) //Append new element to end of slice, append function always returns a new slice
 	fmt.Println(mySlice)
+
+	myOtherSlice[0] = 13.37 //Reassign elemet at an index to a new element
+	myOtherSlice[1] = 319.95
+	fmt.Println(myOtherSlice)
+
+	copy(mySlice, myOtherSlice) //Copy one slice elements into another slice, using built in copy function
+
+	fmt.Println(mySlice)
+
 }
