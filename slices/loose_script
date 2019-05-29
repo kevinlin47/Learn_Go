@@ -1,8 +1,7 @@
-package main
+Go over slide "What is a slice?"
 
-import "fmt"
-
-func main() {
+Write quick example of an array in Go
+/*
 	array := [5]int{1, 2, 3, 4, 5} //Create an array of of type int that holds 5 elements.
 
 	for i, d := range array {
@@ -22,10 +21,18 @@ func main() {
 
 	fmt.Println(myArray)
 	fmt.Println(len(myArray))
+*/
 
-	mySlice := []float32{} //Declare and initialize a slice variable
-	fmt.Println(mySlice)
+Go over side note and limiation slides
 
-	mySlice = append(mySlice, 3.14, 3.199)
-	fmt.Println(mySlice)
-}
+Go to slice internals link and explain what is going on in the diagrams.
+
+Go over syntax for creating slice, using make and no make
+Go over append and copy function
+Go over slice operator
+/*
+
+*/
+
+Write create deck function using loop and slice.
+Wrap up
