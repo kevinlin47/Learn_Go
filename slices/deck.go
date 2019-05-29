@@ -10,10 +10,9 @@ func main() {
 			fmt.Println()
 		}
 		fmt.Printf("%s ", c)
-		fmt.Printf("           | ")
 	}
 
-	fmt.Println(len(cards))
+	fmt.Println("\n", len(cards))
 }
 
 func newDeck() []string {
