@@ -1,21 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
+
+type deck []string
 
 func main() {
 	cards := newDeck()
 
-	for i, c := range cards {
-		if i%13 == 0 {
-			fmt.Println()
-		}
-		fmt.Printf("%s ", c)
-	}
+	fmt.Println(reflect.TypeOf(cards))
+
+	cards.print()
 
 	fmt.Println("\n", len(cards))
 }
 
-func newDeck() []string {
+func newDeck() deck {
 
 	newDeck := []string{}
 
@@ -28,4 +30,13 @@ func newDeck() []string {
 		}
 	}
 	return newDeck
+}
+
+func (d deck) print() {
+	for i, c := range d {
+		if i%13 == 0 {
+			fmt.Println()
+		}
+		fmt.Printf("%s ", c)
+	}
 }
