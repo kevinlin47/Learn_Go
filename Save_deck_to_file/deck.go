@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"reflect"
+	"strings"
 )
 
 type deck []string
@@ -15,6 +17,16 @@ func main() {
 	cards.print()
 
 	fmt.Println("\n", len(cards))
+
+	bigString := cards.toString()
+
+	fmt.Println(bigString)
+
+	if cards.saveToFile("test_file") == nil {
+		fmt.Println("Deck saved successfully")
+	} else {
+		fmt.Println("Error in saving deck")
+	}
 }
 
 func newDeck() deck {
@@ -39,4 +51,12 @@ func (d deck) print() {
 		}
 		fmt.Printf("%s ", c)
 	}
+}
+
+func (d deck) saveToFile(fileName string) error {
+	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
+}
+
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",")
 }
