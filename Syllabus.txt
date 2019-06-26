@@ -54,15 +54,12 @@
 	 - Explain error handling in Go
 	 - Write error handling while reaidng from file
 
-13 - Shuffle Deck
-	 - Use random number generator to shuffle our deck
-
-14 - Testing with Go
+13 - Testing with Go
    - Explain how to create go test file
    - Explain how to run all tests files in a package
    - Demonstrate the above
    
-15 - Project Review / Wrap up
+14 - Project Review / Wrap up
 
 
 
