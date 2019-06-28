@@ -3,20 +3,21 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"reflect"
+	"math/rand"
 	"strings"
+	"time"
 )
 
 type deck []string
 
 func main() {
 	cards := newDeck()
+	/*
+		fmt.Println(reflect.TypeOf(cards))
 
-	fmt.Println(reflect.TypeOf(cards))
+		cards.print()
 
-	cards.print()
-
-	fmt.Println("\n", len(cards))
+		fmt.Println("\n", len(cards))*/
 
 	bigString := cards.toString()
 
@@ -27,6 +28,23 @@ func main() {
 	} else {
 		fmt.Println("Error in saving deck")
 	}
+
+	newDeck := newDeckFromFile("test_file")
+
+	newDeck.print()
+
+	newDeck.shuffle()
+
+	fmt.Println()
+	newDeck.print()
+
+	handCards, restOfDeck := deal(newDeck, 7)
+
+	fmt.Println()
+	handCards.print()
+	fmt.Println()
+	fmt.Println()
+	restOfDeck.print()
 }
 
 func newDeck() deck {
@@ -57,6 +75,27 @@ func (d deck) saveToFile(fileName string) error {
 	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
 }
 
+func newDeckFromFile(fileName string) deck {
+	bs, _ := ioutil.ReadFile(fileName)
+
+	return deck(strings.Split(string(bs), ","))
+}
+
 func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
+}
+
+func (d deck) shuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+
+	r := rand.New(source)
+
+	for i := range d {
+		newPosition := r.Intn(len(d) - 1)
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
+}
+
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
 }
