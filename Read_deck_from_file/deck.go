@@ -76,9 +76,15 @@ func (d deck) saveToFile(fileName string) error {
 }
 
 func newDeckFromFile(fileName string) deck {
-	bs, _ := ioutil.ReadFile(fileName)
+	bs, err := ioutil.ReadFile(fileName)
 
-	return deck(strings.Split(string(bs), ","))
+	if err != nil {
+		fmt.Println("Error: Reading from file")
+	} else {
+		return deck(strings.Split(string(bs), ","))
+	}
+
+	return nil
 }
 
 func (d deck) toString() string {
