@@ -13,6 +13,19 @@ type shopList []string
 
 func main() {
 
+	//Infinite loop until sentinel value is detected
+	for {
+		//Create command line text menu
+		fmt.Println("My Shopping List v1.0")
+		fmt.Println("Select option")
+		fmt.Println("1. Print List")
+		fmt.Println("2. Add")
+		fmt.Println("3. Remove")
+		fmt.Println("4. New List")
+		fmt.Println("5. Save List")
+		fmt.Println("6. Open List")
+		fmt.Println("7. Exit Program")
+	}
 }
 
 /*
