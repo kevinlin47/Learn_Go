@@ -100,7 +100,7 @@ func main() {
 				if scanner.Err() != nil {
 					fmt.Println(err)
 				} else {
-					fmt.Println("Opened Shoppinh List Successfully")
+					fmt.Println("Opened Shopping List Successfully")
 				}
 			case "7":
 				fmt.Println("Exiting Application")
