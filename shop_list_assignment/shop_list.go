@@ -49,7 +49,8 @@ func main() {
 			case "1":
 				myShopList.printList()
 			case "2":
-				fmt.Println("Enter item name\n-> ")
+				fmt.Println("Enter item name")
+				fmt.Print("-> ")
 
 				scanner.Scan()
 				item := scanner.Text()
@@ -59,7 +60,8 @@ func main() {
 					fmt.Println("Error occured when adding item")
 				}
 			case "3":
-				fmt.Println("Remove\n Enter item index\n-> ")
+				fmt.Println("Remove\n Enter item index")
+				fmt.Print("-> ")
 				scanner.Scan()
 				index := scanner.Text()
 
@@ -75,7 +77,8 @@ func main() {
 			case "4":
 				myShopList = newList()
 			case "5":
-				fmt.Println("Saving\n Enter File Name\n-> ")
+				fmt.Println("Saving\n Enter File Name")
+				fmt.Print("-> ")
 				scanner.Scan()
 				fileName := scanner.Text()
 
@@ -87,7 +90,8 @@ func main() {
 					fmt.Println("Shopping List Saved Successfully")
 				}
 			case "6":
-				fmt.Println("Opening\n Enter File Name\n-> ")
+				fmt.Println("Opening\n Enter File Name")
+				fmt.Print("-> ")
 				scanner.Scan()
 				fileName := scanner.Text()
 				var err error
