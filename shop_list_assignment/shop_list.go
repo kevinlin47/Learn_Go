@@ -1,9 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"os"
+	"strconv"
 	"strings"
 )
 
@@ -12,6 +15,9 @@ import (
 type shopList []string
 
 func main() {
+
+	//Create intial shopping list variable
+	myShopList := shopList{}
 
 	//Infinite loop until sentinel value is detected
 	for {
@@ -25,6 +31,79 @@ func main() {
 		fmt.Println("5. Save List")
 		fmt.Println("6. Open List")
 		fmt.Println("7. Exit Program")
+
+		//Create a new reader to read command line input
+		reader := bufio.NewReader(os.Stdin)
+
+		//We will use ReadRune() since we only need to read in one character and not whole strings
+		selection, _, err := reader.ReadRune()
+
+		//Check if there was an error
+		//Inform user of error if one occured
+		if err != nil {
+			fmt.Println("Invalid selection")
+		} else {
+			//Note that no default case was created because of the error check above
+			switch selection {
+			case '1':
+				myShopList.printList()
+			case '2':
+				fmt.Println("Enter item name: ")
+
+				//We use ReadString now to read in the string for the name of the item
+				//The argument passed into method ReadString is deliminator
+				item, err := reader.ReadString('\n')
+
+				if err == nil {
+					myShopList = addToList(myShopList, item)
+				} else {
+					fmt.Println("Error occured when adding item")
+				}
+			case '3':
+				fmt.Println("Remove\n Enter item index:")
+				index, err := reader.ReadString('\n')
+
+				if err == nil {
+					i, _ := strconv.Atoi(index)
+					myShopList, err = removeFromList(myShopList, i)
+
+					if err != nil {
+						fmt.Println(err)
+					}
+				}
+			case '4':
+				myShopList = newList()
+			case '5':
+				fmt.Println("Saving\n Enter File Name: ")
+				fileName, _ := reader.ReadString('\n')
+
+				err := myShopList.saveToFile(fileName)
+
+				if err != nil {
+					fmt.Println(err)
+				} else {
+					fmt.Println("Shopping List Saved Successfully")
+				}
+			case '6':
+				fmt.Println("Opening\n Enter File Name: ")
+				fileName, _ := reader.ReadString('\n')
+
+				myShopList, err = readFromFile(fileName)
+
+				if err != nil {
+					fmt.Println(err)
+				} else {
+					fmt.Println("Opened Shoppinh List Successfully")
+				}
+			case '7':
+				fmt.Println("Exiting Application")
+				fmt.Println("Goodbye")
+
+				//We execute a graceful shutdown of the application with return code 0
+				//Indicating there was no error when exiting the application
+				os.Exit(0)
+			}
+		}
 	}
 }
 
