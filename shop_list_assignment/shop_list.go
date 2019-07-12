@@ -33,49 +33,51 @@ func main() {
 		fmt.Println("7. Exit Program")
 
 		//Create a new reader to read command line input
-		reader := bufio.NewReader(os.Stdin)
+		scanner := bufio.NewScanner(os.Stdin)
 
-		//We will use ReadRune() since we only need to read in one character and not whole strings
-		selection, _, err := reader.ReadRune()
+		//We will use scanner in bufio package to read command line input
+		scanner.Scan()
+		selection := scanner.Text()
 
 		//Check if there was an error
 		//Inform user of error if one occured
-		if err != nil {
+		if scanner.Err() != nil {
 			fmt.Println("Invalid selection")
 		} else {
 			//Note that no default case was created because of the error check above
 			switch selection {
-			case '1':
+			case "1":
 				myShopList.printList()
-			case '2':
-				fmt.Println("Enter item name: ")
+			case "2":
+				fmt.Println("Enter item name\n-> ")
 
-				//We use ReadString now to read in the string for the name of the item
-				//The argument passed into method ReadString is deliminator
-				item, err := reader.ReadString('\n')
-
-				if err == nil {
+				scanner.Scan()
+				item := scanner.Text()
+				if scanner.Err() == nil {
 					myShopList = addToList(myShopList, item)
 				} else {
 					fmt.Println("Error occured when adding item")
 				}
-			case '3':
-				fmt.Println("Remove\n Enter item index:")
-				index, err := reader.ReadString('\n')
+			case "3":
+				fmt.Println("Remove\n Enter item index\n-> ")
+				scanner.Scan()
+				index := scanner.Text()
 
-				if err == nil {
+				if scanner.Err() == nil {
 					i, _ := strconv.Atoi(index)
+					var err error
 					myShopList, err = removeFromList(myShopList, i)
 
 					if err != nil {
 						fmt.Println(err)
 					}
 				}
-			case '4':
+			case "4":
 				myShopList = newList()
-			case '5':
-				fmt.Println("Saving\n Enter File Name: ")
-				fileName, _ := reader.ReadString('\n')
+			case "5":
+				fmt.Println("Saving\n Enter File Name\n-> ")
+				scanner.Scan()
+				fileName := scanner.Text()
 
 				err := myShopList.saveToFile(fileName)
 
@@ -84,18 +86,19 @@ func main() {
 				} else {
 					fmt.Println("Shopping List Saved Successfully")
 				}
-			case '6':
-				fmt.Println("Opening\n Enter File Name: ")
-				fileName, _ := reader.ReadString('\n')
-
+			case "6":
+				fmt.Println("Opening\n Enter File Name\n-> ")
+				scanner.Scan()
+				fileName := scanner.Text()
+				var err error
 				myShopList, err = readFromFile(fileName)
 
-				if err != nil {
+				if scanner.Err() != nil {
 					fmt.Println(err)
 				} else {
 					fmt.Println("Opened Shoppinh List Successfully")
 				}
-			case '7':
+			case "7":
 				fmt.Println("Exiting Application")
 				fmt.Println("Goodbye")
 
