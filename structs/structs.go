@@ -20,7 +20,7 @@ func main() {
 	//Omitting any fields results in that variable types zero-value
 	person3 := person{}
 
-	fmt.Println(person1)
-	fmt.Println(person2)
-	fmt.Println(person3)
+	fmt.Println("person1's first name: " + person1.firstName)
+	fmt.Println("Person2's last name: " + person2.lastName)
+	fmt.Println("person3's age : ", person3.age)
 }
