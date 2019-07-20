@@ -63,6 +63,8 @@
 
 15 - Structs
 
+16 - Structs with receiver functions
+
 
 
 
