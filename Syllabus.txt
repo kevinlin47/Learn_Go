@@ -65,6 +65,10 @@
 
 16 - Structs with receiver functions
 
+17 - Pointers
+
+18 - Maps
+
 
 
 
