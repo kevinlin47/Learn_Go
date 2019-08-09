@@ -22,7 +22,8 @@ func main() {
 			zipCode: 1234,
 		},
 	}
-	kevin.updateEmail("myNewEmail@example.com")
+	kevinPtr := &kevin
+	kevinPtr.updateEmail("myNewEmail@example.com")
 	kevin.print()
 }
 
@@ -30,6 +31,6 @@ func (p person) print() {
 	fmt.Printf("%+v", p)
 }
 
-func (p person) updateEmail(newEmail string) {
-	p.contactInfo.email = newEmail
+func (p *person) updateEmail(newEmail string) {
+	(*p).contactInfo.email = newEmail
 }
